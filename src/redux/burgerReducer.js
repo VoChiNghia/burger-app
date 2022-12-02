@@ -15,17 +15,20 @@ const burgerState = {
 export const burgerReducer = (state = burgerState,action)=>{
         switch(action.type){
             case "ADD":{
-              const newState = {...state}
+                const newState = JSON.parse(JSON.stringify(state));;
+                console.log(newState)
+             
               newState.burger[action.payload] += 1
                
                return newState
             }
             case "MINUS":{
-                if(state.burger[action.payload] > 0){
-                    state.burger[action.payload] -= 1
-                }
-                
-                 return {...state}
+                const newState = JSON.parse(JSON.stringify(state));;
+                console.log(newState)
+             
+              newState.burger[action.payload] -= 1
+               
+               return newState
               }
             default: return state
         }
